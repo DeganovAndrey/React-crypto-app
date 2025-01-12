@@ -1,4 +1,4 @@
-import { Card, Layout, List, Statistic, Typography, Spin, Tag } from "antd";
+import { Card, Layout, List, Statistic, Typography, Tag } from "antd";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { capitalize } from "../../utils";
 import { useContext } from "react";
@@ -9,10 +9,8 @@ const siderStyle = {
 };
 
 const AppSider = () => {
-  const { loading, assets } = useContext(CryptoContext);
-  if (loading) {
-    return <Spin fullscreen />;
-  }
+  const { assets } = useContext(CryptoContext);
+
   return (
     <Layout.Sider width="25%" style={siderStyle}>
       {assets.map((asset) => (
@@ -57,18 +55,6 @@ const AppSider = () => {
             )}
           />
         </Card>
-        // <Card>
-        //   <Statistic
-        //     title="Idle"
-        //     value={9.3}
-        //     precision={2}
-        //     valueStyle={{
-        //       color: "#cf1322",
-        //     }}
-        //     prefix={<ArrowDownOutlined />}
-        //     suffix="%"
-        //   />
-        // </Card>
       ))}
     </Layout.Sider>
   );
