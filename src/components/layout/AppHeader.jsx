@@ -18,7 +18,7 @@ const AppHeader = () => {
   const [select, setSelect] = useState(false);
   const [modal, setModal] = useState(false);
   const [coin, setCoin] = useState(null);
-  const [drawer, setDrawer] = useState(false);
+  const [drawer, setDrawer] = useState(true);
 
   const { crypto } = useCrypto();
 
@@ -74,6 +74,7 @@ const AppHeader = () => {
         title="Add Asset"
         open={drawer}
         onClose={() => setDrawer(false)}
+        destroyOnClose
       >
         <AddAssetForm />
       </Drawer>
