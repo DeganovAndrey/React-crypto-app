@@ -1,18 +1,10 @@
-import { Divider, Flex, Tag, Typography } from "antd";
+import { Divider, Tag, Typography } from "antd";
+import CoinInfo from "../CoinInfo";
 
 const CoinInfoModal = ({ coin }) => {
   return (
     <>
-      <Flex align="center">
-        <img
-          src={coin.icon}
-          alt={coin.name}
-          style={{ width: 40, marginRight: 10 }}
-        />
-        <Typography.Title level={2} style={{ margin: 0 }}>
-          ({coin.symbol}) {coin.name}
-        </Typography.Title>
-      </Flex>
+      <CoinInfo coin={coin} withSymbol />
       <Divider />
       <Typography.Paragraph>
         <Typography.Text strong>1 hour: </Typography.Text>
@@ -28,17 +20,14 @@ const CoinInfoModal = ({ coin }) => {
           {coin.priceChange1w}%
         </Tag>
       </Typography.Paragraph>
-
       <Typography.Paragraph>
         <Typography.Text strong>Price: </Typography.Text>
         {coin.price.toFixed(2)}$
       </Typography.Paragraph>
-
       <Typography.Paragraph>
         <Typography.Text strong>Price BTC: </Typography.Text>
         {coin.priceBtc}
       </Typography.Paragraph>
-
       <Typography.Paragraph>
         <Typography.Text strong>Market Cap: </Typography.Text>
         {coin.marketCap.toFixed(2)}$
